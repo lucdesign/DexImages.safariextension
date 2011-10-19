@@ -1,1 +1,1 @@
-This is a simple slideshow that automatically kicks in when you surf to a directory full uf images.
+This is a simple slideshow that automatically kicks in when you surf to a directory full of images.
