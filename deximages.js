@@ -18,13 +18,14 @@
   // helper
   function detectImageDir () {
     var
-    htm = document.getElementsByTagName('html')[0].innerHTML,
+    html = document.getElementsByTagName('html')[0].innerHTML,
     ttl = document.title.indexOf('Index of ') === 0,
     url = document.URL.substr(-1) === '/',
     end = document.URL.match(/\/\?/) != null,
-    tpd = htm.match(/\[To Parent Directory\]/) != null,
-    frm = htm.match(/frameset/i) === null;
-    return  ( ttl && url && frm || end || tpd );
+    tpd = html.match(/\[To Parent Directory\]/) != null,
+    frm = html.match(/frameset/i) === null,
+    div = document.getElementsByTagName('div').length === 0;
+    return  ( (ttl && url && frm || end || tpd) && div);
   }
   // end 'detectImageDir'
 
