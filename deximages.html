@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<script>
+
+/*
+*   deximages.html
+*   
+*   global page for
+*   DexImages Safari Extension
+*   Version 1.0
+*   © 2011 lucdesign
+*/
+
+safari.application.addEventListener('message', respondToMessage, false);
+
+function respondToMessage(e) {
+  if (e.name === 'newTab') {
+    safari.application.activeBrowserWindow.openTab().url = e.message;
+  }
+}
+
+</script>
+
