@@ -18,12 +18,12 @@
   // helper
   function detectImageDir () {
     var
-    html = document.getElementsByTagName('html')[0].innerHTML,
+    htm = document.getElementsByTagName('html')[0].innerHTML,
     ttl = document.title.indexOf('Index of ') === 0,
     url = document.URL.substr(-1) === '/',
     end = document.URL.match(/\/\?/) != null,
-    tpd = html.match(/\[To Parent Directory\]/) != null,
-    frm = html.match(/frameset/i) === null,
+    tpd = htm.match(/\[To Parent Directory\]/) !== null,
+    frm = htm.match(/frameset/i) === null,
     div = document.getElementsByTagName('div').length === 0;
     return  ( (ttl && url && frm || end || tpd) && div);
   }
@@ -79,7 +79,7 @@
           }
         }
         // get rid of smaller versions and thumbnails
-        if (baseURL.search(/\.thumbnail|_tn\.|_tm\.|big\.|_thumb|_small|_pre\.?\./) > 0) baseURL = '';
+        if (baseURL.search(/\.thumbnail|_tn\.|TN_\.|_tm\.|big\.|_thumb|[_-]small|_pre\.?\./) > 0) baseURL = '';
         if (baseURL.match(/\/_.?/)) baseURL = '';
         // only count in images
         if (baseURL.search(/.gif|.jpg|.jpeg|.png|.bmp/i) > -1) {
